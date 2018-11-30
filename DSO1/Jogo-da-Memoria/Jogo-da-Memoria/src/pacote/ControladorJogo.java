@@ -113,6 +113,9 @@ public class ControladorJogo extends JFrame {
 					@Override
 					public void actionPerformed(ActionEvent arg0) {
 						System.out.println(nivelSelecionado);
+						if(nivelSelecionado == null) {
+							JOptionPane.showMessageDialog(null, "DEFINA UM NIVEL CARAMBA");
+						} else {
 						if(nivelSelecionado.equalsIgnoreCase("facil")){
 							JogoFacil jogoFacil = new JogoFacil();
 							jogoFacil.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -138,6 +141,7 @@ public class ControladorJogo extends JFrame {
 						
 					}
         }
+        		}
         );
         ranking = new JButton("RANKING");
         ranking.addActionListener( 
