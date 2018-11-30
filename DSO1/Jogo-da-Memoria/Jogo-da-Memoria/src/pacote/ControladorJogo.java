@@ -29,7 +29,7 @@ public class ControladorJogo extends JFrame {
     protected JButton ranking;
     protected JButton opcaoNivel;
     protected JButton sair;
-    protected String nivelSelecionado = "medio";///////////////////////////////////////////MUDAR DEPOIS 
+    protected String nivelSelecionado;///////////////////////////////////////////MUDAR DEPOIS 
     protected JButton facil;
     protected JButton medio;
     protected JButton dificil;
@@ -121,16 +121,16 @@ public class ControladorJogo extends JFrame {
 							jogoFacil.setResizable(true);
 						}
 						if(nivelSelecionado.equalsIgnoreCase("medio")){
-							JogoFacil jogoNormal = new JogoFacil();
+							JogoNormal jogoNormal = new JogoNormal();
 							jogoNormal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-							jogoNormal.setSize(800, 500);
+							jogoNormal.setSize(1800, 1500);
 							jogoNormal.setVisible(true);
 							jogoNormal.setResizable(true);
 						}
 						if(nivelSelecionado.equalsIgnoreCase("dificil")){
-							JogoFacil jogoDificil = new JogoFacil();
+							JogoDificil jogoDificil = new JogoDificil();
 							jogoDificil.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-							jogoDificil.setSize(800, 500);
+							jogoDificil.setExtendedState(JFrame.MAXIMIZED_BOTH);
 							jogoDificil.setVisible(true);
 							jogoDificil.setResizable(true);
 						}
