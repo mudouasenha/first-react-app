@@ -1,19 +1,19 @@
 package pacote;
 
-import javax.swing.*;
-import java.awt.GridBagLayout;
 import java.awt.GridLayout;
-import java.awt.List;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
-import java.util.Collections;
 import java.util.Random;
-import java.util.ArrayList;
-import java.util.Arrays;
 
-public class JogoFacil extends JogosMae{
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
+import pacote.JogoFacil.ButtonHandler;
+
+public class JogoNormal extends JogosMae {
+	
 	protected Carta[] cartas;
 	ControladorCarta controlador;
 	private JPanel painelA;
@@ -21,10 +21,9 @@ public class JogoFacil extends JogosMae{
 	protected long iniciaContaTempo;
 	boolean comecou = false;
 	int contaClique = 0;
-    int qtdCartas = 8;
-    int qtdImagens = 4;
+    int qtdCartas = 24;
+    int qtdImagens = 12;
 	MouseEvent clique;
-	private ImageIcon[] cartaComPar = new ImageIcon[8];
 	public final ImageIcon imagemFundo = new ImageIcon(getClass().getResource("FUNDO.jpg"));
 	public final ImageIcon[] arrayFundos = {
 			new ImageIcon(getClass().getResource("1.jpg")),
@@ -59,22 +58,21 @@ public class JogoFacil extends JogosMae{
 			new ImageIcon(getClass().getResource("30.jpg")),
 	};
       
-		public JogoFacil() {
+		public JogoNormal() {
 						
-			super("Jogo Facil");
+			super("Jogo Normal");
 
 			controlador = new ControladorCarta();
 			Cronometro cronometro = new Cronometro();
 			iniciaContaTempo = cronometro.getAtual();
 			
-            int qtdCartas = 8;
-            int qtdImagens = 4;
+
 			painelA = new JPanel();
 			add(painelA);
-			painelA.setLayout(new GridLayout(2, 4));
+			painelA.setLayout(new GridLayout(6, 4));
 			cartas = new Carta[qtdCartas];
             
-			//da um numero para cada carta
+
             int numeroCarta = 1;
 			for(int i = 0; i < qtdCartas; i++) {
 				cartas[i] = new Carta(numeroCarta);
@@ -84,28 +82,20 @@ public class JogoFacil extends JogosMae{
                 }
 			}
 			
-			//adicionando imagem de fundo para todas as cartas
 			for(int i = 0; i < qtdCartas; i++) {
 				cartas[i].setIcon(imagemFundo);
 			}
 								
-			//adicionando todas as cartas ao frame
 			for(int i = 0; i < qtdCartas; i++) {
 				painelA.add(cartas[i]);
 			}
 			
-			//adicionando handlers a todas as cartas
 			ButtonHandler handler = new ButtonHandler();
 			for(int i = 0; i < qtdCartas; i++) {
 				cartas[i].addActionListener(handler);
 			}
 			
-			
-			int[] numerosRng = new int[8];
-
-
-			
-			
+						
 			
 			
 			//no final do jogo
@@ -205,7 +195,7 @@ public class JogoFacil extends JogosMae{
 				return;
 			}
 			
-			if(qtdAcertos >= 4) {
+			if(qtdAcertos >= 12) {
 				comecou = false;
 				System.out.println("ganhouuu");
 				JOptionPane.showMessageDialog(null, "Você Ganhou!!");
@@ -215,4 +205,5 @@ public class JogoFacil extends JogosMae{
 			
 	}
 }
+
 }

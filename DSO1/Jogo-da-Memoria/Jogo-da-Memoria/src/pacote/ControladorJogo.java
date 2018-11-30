@@ -29,7 +29,7 @@ public class ControladorJogo extends JFrame {
     protected JButton ranking;
     protected JButton opcaoNivel;
     protected JButton sair;
-    protected String nivelSelecionado = "facil";///////////////////////////////////////////MUDAR DEPOIS 
+    protected String nivelSelecionado = "medio";///////////////////////////////////////////MUDAR DEPOIS 
     protected JButton facil;
     protected JButton medio;
     protected JButton dificil;
